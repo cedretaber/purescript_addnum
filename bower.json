@@ -1,5 +1,5 @@
 {
-  "name": "sample_page",
+  "name": "purescript_addnum",
   "ignore": [
     "**/.*",
     "node_modules",
