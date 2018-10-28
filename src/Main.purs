@@ -1,7 +1,7 @@
 module Main where
 
 import Prelude
-import Control.Monad.Eff (Eff)
+import Effect (Effect)
 import Data.Maybe (Maybe(..))
 import Data.Int (fromString)
 import Halogen.Aff as HA
@@ -54,12 +54,12 @@ calc =
                 Just n -> n
                 Nothing -> 0
         in do
-            H.modify $ case xy of
+            _ <- H.modify $ case xy of
                 X -> (_ { x = n })
                 Y -> (_ { y = n })
             pure next
 
-main :: forall e. Eff (HA.HalogenEffects ()) Unit
+main :: Effect Unit
 main = HA.runHalogenAff do
     body <- HA.awaitBody
     runUI calc unit body
